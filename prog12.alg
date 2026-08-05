@@ -1,11 +1,11 @@
 algoritmo "Numero de 1 a 100 somados"
 var
 i: inteiro
-soma: inteiro
+resultado: inteiro
 inicio
-soma <- 0
-    para i de 1 ate 100 faca
-    soma <- soma + i
-    fimpara
-escreval("A soma de 1 a 100 é: ", soma)
+i <- 1
+    enquanto i <= 100 faca
+    resultado <- resultado + i
+    fimenquanto
+    escreval(resultado)
 fimalgoritmo
