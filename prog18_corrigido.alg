@@ -1,35 +1,31 @@
 algoritmo "Tabela notas"
 var
-  notas: matriz[1..3,1..4] de real
-  alunos: vetor[1..3] de caractere
-  medias: vetor[1..3] de real
-  nota, soma, media: real
-  a1, n1: inteiro
-  nome: caractere
+notas: vetor[1..3,1..4] de real
+media: real
+a1, n1: inteiro
+nota: real
 inicio
-  para a1 de 1 ate 3 faca
-    escreval("Qual seu nome?")
-    leia(nome)
-    alunos[a1] <- nome
-
-    soma <- 0
+para a1 de 1 ate 3 faca
+    escreval("Aluno", a1)
     para n1 de 1 ate 4 faca
-      escreval("Sua ", n1, "ª nota:")
-      leia(nota)
-      notas[a1,n1] <- nota        // usa índice do aluno e da nota
-      soma <- soma + nota
+        escreval("Sua ", n1," nota:")
+        leia(nota)
+        notas[a1,n1] <- nota
     fimpara
-
-    media <- soma / 4
-    medias[a1] <- media
-  fimpara
-
-  escreval("") 
-  escreval("Tabela de alunos, notas e médias:")
-  para a1 de 1 ate 3 faca
-    escreval("Aluno: ", alunos[a1])
-    escreval("  Notas: ", notas[a1,1], " ", notas[a1,2], " ", notas[a1,3], " ", notas[a1,4])
-    escreval("  Média: ", medias[a1])
-    escreval("------------------------------------------------")
-  fimpara
+escreval(" ")
+fimpara
+para a1 de 1 ate 3 faca
+    media <- 0 
+    para n1 de 1 ate 4 faca
+        media <- media + notas[a1,n1]
+    fimpara
+    media <- media/4
+    escreval("Aluno ",a1," - Média: ", media)
+    se media >= 6 entao
+        escreval("Situação: Aprovado")
+    senao
+        escreval("Situação: Reprovado")
+    fimse
+    escreval(" ")
+fimpara
 fimalgoritmo
